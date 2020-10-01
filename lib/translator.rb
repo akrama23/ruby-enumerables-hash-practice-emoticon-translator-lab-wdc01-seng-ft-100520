@@ -29,6 +29,6 @@ def get_english_meaning(file_path, emoticon)
   
   emoticons_lib = load_library(file_path)
   emoticons_lib.each do |word, definitions|
-  
+  emoticons_lib[definitions]
   end 
 end
