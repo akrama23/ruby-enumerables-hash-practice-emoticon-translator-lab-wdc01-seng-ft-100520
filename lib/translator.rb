@@ -21,8 +21,8 @@ def get_japanese_emoticon(file_path, emoticon)
  emoticons_lib.each do |meaning, language|
    if emoticons_lib[language][:english] == emoticon
      return meaning 
-
-  # code goes here
+   end 
+ end 
 end
 
 def get_english_meaning(file_path, emoticon)
@@ -33,8 +33,6 @@ def get_english_meaning(file_path, emoticon)
    if emoticons_lib[language][:japanese] == emoticon
     
      return meaning 
+    end 
   end 
-  
-  end 
-  
 end
