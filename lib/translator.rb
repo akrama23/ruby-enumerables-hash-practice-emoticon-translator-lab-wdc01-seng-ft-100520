@@ -17,11 +17,13 @@ require 'yaml'
    end
 
 def get_japanese_emoticon(file_path, emoticon)
-emoticons_lib = load_library(file_path)
-emoticons_lib.each do |word, definitions|
-  if definitions[:english] == emoticon
-    return
+  emoticons_lib = load_library(file_path)
+  emoticons_lib.each do |word, definitions|
+    if definitions[:english] == emoticon
+    return word 
+  end 
 end 
+    return 
 end
 
 def get_english_meaning(file_path, emoticon)
