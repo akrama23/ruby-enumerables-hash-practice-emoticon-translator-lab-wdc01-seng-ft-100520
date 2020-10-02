@@ -5,17 +5,36 @@ require 'yaml'
 # emoticons = 
 # YAML.load_library('emoticons.yml')
 
-def load_library(file_path)
- YAML.load_file(file_path)
-file_path.each_with_object({}) do |(key, value), final_hash|
-  binding.pry 
-end 
+  def load_library(file_path)
+  emoticons =  YAML.load_file(file_path)
+  emoticons_hash = Hash.new 
+  emoticons.each do |key, value|
+    emoticons_hash[key] = Hash.new 
+    emoticons_hash[key][:english] = value[0]
+    emoticons_hash[key][:japanese] = value[1]
+   end
+   emoticons_hash
+   end
+
+def get_japanese_emoticon(file_path, emoticon)
+  emoticons_lib = load_library(file_path)
+  emoticons_lib.each do |word, definitions|
+    if definitions[:english] == emoticon
+      return definitions[:japanese]
+      
+    end 
+  end 
+  return  "Sorry, that emoticon was not found"
 end
 
-def get_japanese_emoticon
-  # code goes here
-end
-
-def get_english_meaning
-  # code goes here
+def get_english_meaning(file_path, emoticon)
+  
+  emoticons_lib = load_library(file_path)
+  emoticons_lib.each do |word, definitions|
+    if definitions[:japanese] == emoticon
+      return word
+    end 
+  end
+  return "Sorry, that emoticon was not found"
+   
 end
