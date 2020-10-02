@@ -32,7 +32,7 @@ def get_english_meaning(file_path, emoticon)
     if definitions[:japanese] == emoticon
       return word 
     end 
-  end 
+end
       return "Sorry, that emoticon was not found"
-  end 
+   
 end
